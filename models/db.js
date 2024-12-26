@@ -1,13 +1,14 @@
 const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize('testdb', 'root', 'password', {
+const sequelize = new Sequelize('microinstragram','root', 'root', {
     host: 'localhost',
-    dialect: 'mysql'
+    dialect: 'mysql',
 });
 
-sequelize.authenticate()
+sequelize
+    .authenticate()
     .then(() => console.log('Connected to MySQL'))
-    .catch(err => {
+    .catch((err) => {
         console.error('Database connection failed:', err);
         process.exit(1);
     });
